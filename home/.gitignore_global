@@ -1,0 +1,13 @@
+# IntelliJ IDEA (e.g., PhpStorm) project configuration.
+.idea
+
+# Vim swap and temporary files.
+*.swo
+*.swp
+*~
+
+# OS-generated files.
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
