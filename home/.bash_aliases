@@ -9,7 +9,7 @@ grep_replace() {
 alias git-root='if [ "`git rev-parse --show-cdup`" != "" ]; then cd `git rev-parse --show-cdup`; fi'
 
 # Prune all Git remotes.
-alias git-remote-prune-all='for REMOTE in `git remote`; do echo "Pruning remote $REMOTE..."; git remote prune $REMOTE; done;'
+alias git-remote-prune-all='for REMOTE in `git remote`; do echo "Pruning $REMOTE"; git remote prune $REMOTE; done;'
 
 # Drush.
 alias dr=drush
