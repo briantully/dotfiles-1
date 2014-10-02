@@ -10,3 +10,9 @@ alias git-root='if [ "`git rev-parse --show-cdup`" != "" ]; then cd `git rev-par
 
 # Drush.
 alias dr=drush
+
+# Set the terminal tab name.
+alias name-tab=name_tab
+name_tab() {
+  echo -ne "\033]0;$1\007"
+}
