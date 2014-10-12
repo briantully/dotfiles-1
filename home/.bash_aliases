@@ -11,6 +11,9 @@ alias git-root='if [ "`git rev-parse --show-cdup`" != "" ]; then cd `git rev-par
 # Drush.
 alias dr=drush
 
+# Drupal Coder Sniffer.
+alias drupalcs="~/.composer/vendor/bin/phpcs --standard=/home/travis/Projects/Drupal/coder/coder_sniffer/Drupal --extensions='php,module,inc,install,test,profile,theme,js,css,info,txt'"
+
 # Set the terminal tab name.
 alias name-tab=name_tab
 name_tab() {
