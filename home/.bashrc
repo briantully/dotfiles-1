@@ -113,3 +113,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Configure Xdebug for PhpStorm.
+export XDEBUG_CONFIG="idekey=PHPSTORM"
