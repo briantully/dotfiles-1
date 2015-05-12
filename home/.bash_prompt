@@ -1,3 +1,5 @@
+# PS1.
+
 # Taken with modification from
 # http://mediadoneright.com/content/ultimate-git-ps1-bash-prompt
 # and https://github.com/drush-ops/drush#post-install.
@@ -22,3 +24,15 @@ if [ $? -eq 0 ]; then # Git repo. \
 else # Not a Git repo. \
   echo " '$Brown$Path$ColorReset'"; \
 fi)'$White'$(__drush_ps1 " [%s]")'$ColorReset' $ '
+
+
+# Xterm title.
+
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWCOLORHINTS=true
+GIT_PS1_UNTRACKEDFILES=true
+export PROMPT_COMMAND='\
+  # Title:
+  echo -ne "\033]0;${PWD##*/}$(__git_ps1)$(__drush_ps1 " [%s]")\007";\
+  # Minimized title:
+  echo -ne "\033]1;${PWD##*/}\007"'
