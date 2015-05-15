@@ -1,38 +1,29 @@
-# PS1.
+#!/usr/bin/env bash
 
-# Taken with modification from
-# http://mediadoneright.com/content/ultimate-git-ps1-bash-prompt
-# and https://github.com/drush-ops/drush#post-install.
+# NAME
+#     .bash_prompt - Sets the bash prompt and terminal title.
+#
+# SYNOPSIS
+#     . ~/.bash_prompt
+#
+# DESCRIPTION
+#     .bash_prompt sets the bash prompt (PS1) and terminal title (minimized and
+#     maximized).
 
-Brown="\[\033[0;33m\]"
-Gray="\[\033[0;90m\]"
-Green="\[\033[0;32m\]"
-Red="\[\033[0;91m\]"
-White="\[\033[0;97m\]"
-Yellow="\[\033[1;33m\]"
-ColorReset="\[\033[0m\]"
-Path="\w"
-
-export PS1=$Gray"\T"$ColorReset'$(git branch &>/dev/null; \
-if [ $? -eq 0 ]; then # Git repo. \
-  echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
-  if [ "$?" -eq "0" ]; then # Clean working directory. \
-    echo "'$Green'"$(__git_ps1 " (%s)"); \
-  else # Dirty working directory. \
-    echo "'$Red'"$(__git_ps1 " {%s}"); \
-  fi) '$Yellow$Path$ColorReset'"; \
-else # Not a Git repo. \
-  echo " '$Brown$Path$ColorReset'"; \
-fi)'$White'$(__drush_ps1 " [%s]")'$ColorReset' $ '
-
-
-# Xterm title.
+GRAY='\033[0;90m'
+YELLOW='\033[0;33m'
+NO_COLOR="\e[0m"
 
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_UNTRACKEDFILES=true
+
 export PROMPT_COMMAND='\
-  # Title:
-  echo -ne "\033]0;${PWD##*/}$(__git_ps1)$(__drush_ps1 " [%s]")\007";\
-  # Minimized title:
-  echo -ne "\033]1;${PWD##*/}\007"'
+# PS1:
+__git_ps1 "
+${YELLOW}$(pwd)${NO_COLOR}
+${GRAY}\T${NO_COLOR} \u@\h" "$(__drush_ps1 " [%s]") \\\$ "
+# Xterm title maximized:
+echo -ne "\033]0;${PWD##*/}$(__git_ps1)$(__drush_ps1 " [%s]")\007";\
+# Xterm title minimized:
+echo -ne "\033]1;${PWD##*/}\007"'
