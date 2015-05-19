@@ -20,8 +20,7 @@ GIT_PS1_UNTRACKEDFILES=true
 
 export PROMPT_COMMAND='\
 # PS1:
-__git_ps1 "
-${YELLOW}$(pwd)${NO_COLOR}
+__git_ps1 "${YELLOW}$(pwd)${NO_COLOR}
 ${GRAY}\T${NO_COLOR} \u@\h:${PWD##*/}" "$(__drush_ps1 " [%s]") \\\$ "
 # Xterm title maximized:
 echo -ne "\033]0;${PWD##*/}$(__git_ps1)$(__drush_ps1 " [%s]")\007";\
