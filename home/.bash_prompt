@@ -10,7 +10,7 @@
 #     .bash_prompt sets the bash prompt (PS1) and terminal title (minimized and
 #     maximized).
 
-GRAY='\033[0;90m'
+LIGHT_GRAY='\033[0;37m'
 YELLOW='\033[0;33m'
 NO_COLOR="\e[0m"
 
@@ -20,8 +20,8 @@ GIT_PS1_UNTRACKEDFILES=true
 
 export PROMPT_COMMAND='\
 # PS1:
-__git_ps1 "${YELLOW}$(pwd)${NO_COLOR}
-${GRAY}\T${NO_COLOR} \u@\h:${PWD##*/}" "$(__drush_ps1 " [%s]") \\\$ "
+__git_ps1 "${YELLOW}$(pwd)${NO_COLOR}" "$(__drush_ps1 " [%s]")
+${LIGHT_GRAY}\T${NO_COLOR} \u@\h: \\\$ "
 # Xterm title maximized:
 echo -ne "\033]0;${PWD##*/}$(__git_ps1)$(__drush_ps1 " [%s]")\007";\
 # Xterm title minimized:
