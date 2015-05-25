@@ -10,22 +10,45 @@
 #     .bash_prompt sets the bash prompt (PS1) and terminal title (minimized and
 #     maximized).
 
-LIGHT_GRAY='\033[0;37m'
-YELLOW='\033[0;33m'
-NO_COLOR="\e[0m"
+COLOR_LIGHT_GRAY='\033[0;37m'
+COLOR_YELLOW='\033[0;33m'
+COLOR_CLEAR="\e[0m"
 
-# @see https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+# Prints succinct details about the current working directory in the form
+# [GIT_REPO_ROOT_DIRNAME/]CWD_DIRNAME.
+function dir_details() {
+  # If within a Git repository but not its root directory.
+  git rev-parse &> /dev/null
+  if [ $? == 0 ] && [ $(git rev-parse --show-toplevel) != $(pwd) ]; then
+    pushd "$(git rev-parse --show-cdup)" > /dev/null
+    DIR_DETAILS=${PWD##*/}"/"
+    popd > /dev/null
+  fi
+
+  DIR_DETAILS=${DIR_DETAILS}${PWD##*/}
+  if [ -z ${DIR_DETAILS} ]; then
+    pwd
+  else
+    echo ${DIR_DETAILS}
+  fi
+}
+
+export PROMPT_COMMAND='\
+# PS1:
 GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM=auto
 GIT_PS1_SHOWSTASHSTATE=true
+__git_ps1 "${COLOR_YELLOW}$(pwd)${COLOR_CLEAR}" "$(__drush_ps1 " [%s]")
+${COLOR_LIGHT_GRAY}\T${COLOR_CLEAR} \u@\h \\\$ "
 
-export PROMPT_COMMAND='\
-# PS1:
-__git_ps1 "${YELLOW}$(pwd)${NO_COLOR}" "$(__drush_ps1 " [%s]")
-${LIGHT_GRAY}\T${NO_COLOR} \u@\h: \\\$ "
+GIT_PS1_SHOWCOLORHINTS=
+GIT_PS1_SHOWDIRTYSTATE=
+GIT_PS1_SHOWUNTRACKEDFILES=
+GIT_PS1_SHOWUPSTREAM=
+GIT_PS1_SHOWSTASHSTATE=
 # Xterm title maximized:
-echo -ne "\033]0;${PWD##*/}$(__git_ps1)$(__drush_ps1 " [%s]")\007";\
+echo -ne "\033]0;$(dir_details)$(__git_ps1)$(__drush_ps1 " [%s]")\007";\
 # Xterm title minimized:
-echo -ne "\033]1;${PWD##*/}\007"'
+echo -ne "\033]1;$(dir_details)\007"'
