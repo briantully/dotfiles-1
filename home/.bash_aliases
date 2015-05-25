@@ -5,8 +5,8 @@ grep_replace() {
 }
 
 # cd to the root of a Git repository.
-# See http://stackoverflow.com/a/11369533/895083.
-alias git-root='if [ "`git rev-parse --show-cdup`" != "" ]; then cd `git rev-parse --show-cdup`; fi'
+# See https://stackoverflow.com/a/957978/895083.
+alias git-root='cd "$(git rev-parse --show-toplevel)"'
 
 # Drush.
 alias dr=drush
