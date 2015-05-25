@@ -14,9 +14,12 @@ LIGHT_GRAY='\033[0;37m'
 YELLOW='\033[0;33m'
 NO_COLOR="\e[0m"
 
-GIT_PS1_SHOWDIRTYSTATE=true
+# @see https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 GIT_PS1_SHOWCOLORHINTS=true
-GIT_PS1_UNTRACKEDFILES=true
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM=auto
+GIT_PS1_SHOWSTASHSTATE=true
 
 export PROMPT_COMMAND='\
 # PS1:
