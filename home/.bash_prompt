@@ -40,14 +40,16 @@ GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM=auto
 GIT_PS1_SHOWSTASHSTATE=true
-__git_ps1 "${COLOR_YELLOW}$(pwd)${COLOR_CLEAR}" "$(__drush_ps1 " [%s]")
-${COLOR_LIGHT_GRAY}\T${COLOR_CLEAR} \u@\h \\\$ "
+DRUSH_PS1_SHOWCOLORHINTS=true
+__git_ps1 "${COLOR_LIGHT_GRAY}\T${COLOR_CLEAR} ${COLOR_YELLOW}$(pwd)${COLOR_CLEAR}
+\u@\h" "$(__drush_ps1 " [%s]") \\\$ "
 
 GIT_PS1_SHOWCOLORHINTS=
 GIT_PS1_SHOWDIRTYSTATE=
 GIT_PS1_SHOWUNTRACKEDFILES=
 GIT_PS1_SHOWUPSTREAM=
 GIT_PS1_SHOWSTASHSTATE=
+DRUSH_PS1_SHOWCOLORHINTS=
 # Xterm title maximized:
 echo -ne "\033]0;$(dir_details)$(__git_ps1)$(__drush_ps1 " [%s]")\007";\
 # Xterm title minimized:
