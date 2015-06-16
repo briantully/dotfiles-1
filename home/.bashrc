@@ -99,8 +99,8 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Bash prompt.
-if [ -f ~/.bash_prompt ]; then
-  . ~/.bash_prompt
+if [ -f ~/.drush_prompt ]; then
+  . ~/.drush_prompt
 fi
 
 # Enable programmable completion features (you don't need to enable this, if
