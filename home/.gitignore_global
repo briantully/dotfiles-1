@@ -1,6 +1,3 @@
-# IntelliJ IDEA (e.g., PhpStorm) project configuration.
-.idea
-
 # Vim swap and temporary files.
 *.swo
 *.swp
