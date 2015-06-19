@@ -14,9 +14,16 @@
 
 if [ "\$(type -t __git_ps1)" ] && [ "\$(type -t __drush_ps1)" ]; then
 
-  COLOR_LIGHT_GRAY='\033[0;37m'
-  COLOR_YELLOW='\033[0;33m'
-  COLOR_CLEAR="\e[0m"
+  COLOR_BLUE='\[\e[94m\]'
+  COLOR_CYAN='\[\e[36m\]'
+  COLOR_GOLD='\[\e[0;33m\]'
+  COLOR_GREEN='\[\e[32m\]'
+  COLOR_LIGHT_GRAY='\[\e[0;37m\]'
+  COLOR_MAGENTA='\[\e[35m\]'
+  COLOR_RED='\[\e[91m\]'
+  COLOR_WHITE='\[\e[37m\]'
+  COLOR_YELLOW='\[\e[93m\]'
+  COLOR_NONE='\[\e[0m\]'
 
   # Prints succinct details about the current working directory in the form
   # [GIT_REPO_ROOT_DIRNAME/]CWD_DIRNAME.
@@ -38,24 +45,12 @@ if [ "\$(type -t __git_ps1)" ] && [ "\$(type -t __drush_ps1)" ]; then
   }
 
   __drush_ps1_colorize_alias() {
-    # Using \[ and \] around colors is necessary to prevent issues with command
-    # line editing/browsing/completion.
-    local COLOR_BLUE='\[\e[94m\]'
-    local COLOR_CYAN='\[\e[36m\]'
-    local COLOR_GREEN='\[\e[32m\]'
-    local COLOR_MAGENTA='\[\e[35m\]'
-    local COLOR_RED='\[\e[91m\]'
-    local COLOR_WHITE='\[\e[37m\]'
-    local COLOR_YELLOW='\[\e[93m\]'
-    local COLOR_NONE='\[\e[0m\]'
-
     case "$__DRUPAL_SITE" in
       *.live|*.prod) local ENV_COLOR="$COLOR_RED" ;;
       *.stage|*.test) local ENV_COLOR="$COLOR_YELLOW" ;;
       *.local) local ENV_COLOR="$COLOR_GREEN" ;;
       *) local ENV_COLOR="$COLOR_BLUE" ;;
     esac
-
     __DRUPAL_SITE="${ENV_COLOR}${__DRUPAL_SITE}${COLOR_NONE}"
   }
 
@@ -67,7 +62,7 @@ GIT_PS1_SHOWUPSTREAM=auto
 GIT_PS1_SHOWSTASHSTATE=true
 DRUSH_PS1_SHOWCOLORHINTS=true
 # PS1:
-__git_ps1 "${COLOR_LIGHT_GRAY}\T${COLOR_CLEAR} ${COLOR_YELLOW}$(pwd)${COLOR_CLEAR}
+__git_ps1 "${COLOR_LIGHT_GRAY}\T${COLOR_NONE} ${COLOR_GOLD}$(pwd)${COLOR_NONE}
 \u@\h" "$(__drush_ps1 " [%s]") \\\$ "
 
 GIT_PS1_SHOWCOLORHINTS=
