@@ -9,8 +9,8 @@
 #     fi
 #
 # DESCRIPTION
-#     .drush_prompt displays Git repository and Drush alias status in your
-#     prompt.
+#     .drush_prompt displays Git repository and Drush alias status in your prompt. See
+#     https://github.com/drush-ops/drush/blob/master/examples/example.prompt.sh.
 
 if [ "\$(type -t __git_ps1)" ] && [ "\$(type -t __drush_ps1)" ]; then
 
@@ -25,7 +25,7 @@ if [ "\$(type -t __git_ps1)" ] && [ "\$(type -t __drush_ps1)" ]; then
   COLOR_YELLOW='\[\e[93m\]'
   COLOR_NONE='\[\e[0m\]'
 
-  # Prints succinct details about the current working directory in the form
+  # Prints succinct details about the current working directory in the following form:
   # [GIT_REPO_ROOT_DIRNAME/]CWD_DIRNAME.
   function dir_details() {
     # If within a Git repository but not its root directory.
