@@ -13,3 +13,5 @@ alias dr=drush
 
 # Drupal Coder Sniffer.
 alias drupalcs="~/.composer/vendor/bin/phpcs --standard=/home/travis/Projects/Drupal/coder/coder_sniffer/Drupal --extensions='php,module,inc,install,test,profile,theme,js,css,info,txt'"
+
+alias untar="tar xvfz"
