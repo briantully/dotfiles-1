@@ -116,3 +116,6 @@ fi
 
 # Configure Xdebug for PhpStorm.
 export XDEBUG_CONFIG="idekey=PHPSTORM"
+
+# Homeshick. See https://github.com/andsens/homeshick.
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
