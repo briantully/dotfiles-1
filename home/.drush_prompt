@@ -14,16 +14,15 @@
 
 if [ "\$(type -t __git_ps1)" ] && [ "\$(type -t __drush_ps1)" ]; then
 
-  COLOR_BLUE='\[\e[94m\]'
+  COLOR_BLUE='\[\e[34m\]'
   COLOR_CYAN='\[\e[36m\]'
-  COLOR_GOLD='\[\e[0;33m\]'
   COLOR_GREEN='\[\e[32m\]'
-  COLOR_LIGHT_GRAY='\[\e[0;37m\]'
+  COLOR_LIGHT_GRAY='\[\e[37m\]'
   COLOR_MAGENTA='\[\e[35m\]'
-  COLOR_RED='\[\e[91m\]'
-  COLOR_WHITE='\[\e[37m\]'
-  COLOR_YELLOW='\[\e[93m\]'
-  COLOR_NONE='\[\e[0m\]'
+  COLOR_RED='\[\e[31m\]'
+  COLOR_WHITE='\[\e[97m\]'
+  COLOR_YELLOW='\[\e[33m\]'
+  COLOR_NONE='\[\e[39m\]'
 
   # Prints succinct details about the current working directory in the following form:
   # [GIT_REPO_ROOT_DIRNAME/]CWD_DIRNAME.
@@ -62,7 +61,7 @@ GIT_PS1_SHOWUPSTREAM=auto
 GIT_PS1_SHOWSTASHSTATE=true
 DRUSH_PS1_SHOWCOLORHINTS=true
 # PS1:
-__git_ps1 "${COLOR_LIGHT_GRAY}\T${COLOR_NONE} ${COLOR_GOLD}$(pwd)${COLOR_NONE}
+__git_ps1 "${COLOR_BLUE}\T $(pwd)${COLOR_NONE}
 \u@\h" "$(__drush_ps1 " [%s]") \\\$ "
 
 GIT_PS1_SHOWCOLORHINTS=
