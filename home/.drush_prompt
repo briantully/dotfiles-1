@@ -62,7 +62,7 @@ GIT_PS1_SHOWSTASHSTATE=true
 DRUSH_PS1_SHOWCOLORHINTS=true
 # PS1:
 __git_ps1 "${COLOR_BLUE}\T $(pwd)${COLOR_NONE}
-\u@\h" "$(__drush_ps1 " [%s]") \\\$ "
+${COLOR_WHITE}\u@\h${COLOR_NONE}" "$(__drush_ps1 " [%s]") \\\$ "
 
 GIT_PS1_SHOWCOLORHINTS=
 GIT_PS1_SHOWDIRTYSTATE=
