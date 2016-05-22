@@ -1,0 +1,60 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+
+  - name: Tap Homebrew repositories.
+    homebrew_tap: tap=homebrew/versions state=present
+
+  - name: Install Homebrew packages.
+    homebrew: name={{ item }} state=present
+    with_items:
+      - bash-completion
+      - dos2unix
+      - git
+      - node4-lts
+      - the_silver_searcher
+      - wget
+
+  - name: Install Homebrew Casks.
+    homebrew_cask: name={{ item }} state=present
+    with_items:
+      - 1password
+      - adium
+      - alfred
+      - atom
+      - bartender
+      - calibre
+      - dropbox
+      - evernote
+      - fantastical
+      - flux
+      - hipchat
+      - hyperswitch
+      - imageoptim
+      - iterm2
+      - keepassx
+      - kindle
+      - macpaw-gemini
+      - phpstorm
+      - sequel-pro
+      - skype
+      - snagit
+      - spectacle
+      - toggldesktop
+      - vagrant
+      - virtualbox
+      - viscosity
+      - zoomus
+
+  - name: Install Drush.
+    git:
+      repo=git@github.com:drush-ops/drush.git
+      dest=~/Projects/drush
+      update=no
+
+  - name: Symlink Drush.
+    file:
+      src: ~/Projects/drush/drush
+      path: /usr/local/bin/drush
+      state: link
