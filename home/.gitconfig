@@ -1,0 +1,25 @@
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = /usr/bin/vi
+	pager = less -r
+[rerere]
+	enabled = 1
+[alias]
+	# Taken with modification from http://gitready.com/intermediate/2009/02/06/helpful-command-aliases.html
+	# and http://www.opensourcery.com/blog/jessehs/tips-and-tricks-part-3-git
+	br = branch
+	ci = commit
+	co = checkout
+	cp = cherry-pick
+	df = diff
+	lg = log --stat --abbrev-commit
+	lp = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+	rb = rebase
+	sb = show-branch
+	st = status
+[color]
+	ui = auto
+[user]
+	name = TravisCarden
+[push]
+	default = simple
