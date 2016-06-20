@@ -63,13 +63,4 @@
       - homesick
 
   - name: Install Drush.
-    git:
-      repo=git@github.com:drush-ops/drush.git
-      dest=~/Projects/drush
-      update=no
-
-  - name: Symlink Drush.
-    file:
-      src: ~/Projects/drush/drush
-      path: /usr/local/bin/drush
-      state: link
+    include: tasks/drush.yml
