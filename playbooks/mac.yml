@@ -4,7 +4,10 @@
   tasks:
 
   - name: Tap Homebrew repositories.
-    homebrew_tap: tap=homebrew/versions state=present
+    homebrew_tap: tap=homebrew/{{ item }} state=present
+    with_items:
+      - homebrew-php
+      - versions
 
   - name: Install Homebrew packages.
     homebrew: name={{ item }} state=present
@@ -13,6 +16,7 @@
       - dos2unix
       - git
       - node4-lts
+      - php56
       - the_silver_searcher
       - ruby
       - wget
