@@ -34,6 +34,7 @@
       - dropbox
       - evernote
       - fantastical
+      - firefox
       - flux
       - hipchat
       - hyperswitch
@@ -41,10 +42,12 @@
       - iterm2
       - keepassx
       - kindle
+      - logitech-control-center
       - macpaw-gemini
       - phpstorm
       - sequel-pro
       - skype
+      - slack
       - snagit
       - spectacle
       - toggldesktop
