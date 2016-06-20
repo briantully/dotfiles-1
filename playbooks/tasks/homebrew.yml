@@ -1,0 +1,54 @@
+---
+
+- name: Tap Homebrew repositories.
+  homebrew_tap: tap=homebrew/{{ item }} state=present
+  with_items:
+    - homebrew-php
+    - versions
+
+- name: Install Homebrew packages.
+  homebrew: name={{ item }} state=present
+  with_items:
+    - bash-completion
+    - dos2unix
+    - git
+    - node4-lts
+    - php56
+    - the_silver_searcher
+    - ruby
+    - wget
+
+- name: Install Homebrew Casks.
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - 1password
+    - adium
+    - alfred
+    - anybar
+    - atom
+    - bartender
+    - calibre
+    - dropbox
+    - evernote
+    - fantastical
+    - firefox
+    - flux
+    - hipchat
+    - hyperswitch
+    - imageoptim
+    - iterm2
+    - keepassx
+    - kindle
+    - logitech-control-center
+    - macpaw-gemini
+    - phpstorm
+    - sequel-pro
+    - skype
+    - slack
+    - snagit
+    - spectacle
+    - toggldesktop
+    - vagrant
+    - virtualbox
+    - viscosity
+    - zoomus
