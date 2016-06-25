@@ -11,7 +11,7 @@
 	ci = commit
 	co = checkout
 	cp = cherry-pick
-	df = diff --no-prefix
+	df = diff
 	lg = log --stat --abbrev-commit
 	lp = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 	rb = rebase
