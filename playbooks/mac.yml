@@ -1,7 +1,14 @@
 ---
+
 - hosts: localhost
   connection: local
   tasks:
-  - include: tasks/homebrew.yml
-  - include: tasks/gems.yml
-  - include: tasks/drush.yml
+
+  - name: homebrew
+    include: tasks/homebrew.yml
+
+  - name: gems
+    include: tasks/gems.yml
+
+  - name: drush
+    include: tasks/drush.yml
