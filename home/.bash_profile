@@ -1,5 +1,21 @@
 #@IgnoreInspection BashAddShebang
 
+function alert {
+  anybar orange
+  time eval $@
+  if [ $? -eq 0 ]; then
+    anybar green
+    say Done
+  else
+    anybar red
+    say Error
+  fi
+}
+
+function anybar {
+  echo -n $1 | nc -4u -w0 localhost ${2:-1738};
+}
+
 function source_if_exists() {
   if [ -f $1 ]; then
     source $1
@@ -7,7 +23,6 @@ function source_if_exists() {
 }
 
 # Aliases.
-function anybar { echo -n $1 | nc -4u -w0 localhost ${2:-1738}; }
 alias dr=drush
 alias la='ls -a'
 alias lal='ls -al'
