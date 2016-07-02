@@ -1,11 +1,12 @@
 ---
 
 - name: Tap Homebrew repositories.
-  homebrew_tap: tap=homebrew/{{ item }} state=present
+  homebrew_tap: tap={{ item }} state=present
   with_items:
-    - homebrew-php
-    - completions
-    - versions
+    - caskroom/versions
+    - homebrew/homebrew-php
+    - homebrew/completions
+    - homebrew/versions
 
 - name: Install Homebrew packages.
   homebrew: name={{ item }} state=present
@@ -49,6 +50,7 @@
     - sequel-pro
     - skype
     - slack
+    - snagit3
     - spectacle
     - toggldesktop
     - vagrant
