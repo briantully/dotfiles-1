@@ -15,6 +15,7 @@
     - composer-completion
     - dos2unix
     - git
+    - mas
     - node4-lts
     - php56
     - the_silver_searcher
