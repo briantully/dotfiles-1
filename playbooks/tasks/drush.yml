@@ -19,10 +19,10 @@
   git_config: name=user.email repo=~/Projects/drush scope=local value=travis.carden@gmail.com
 
 - name: Install Composer packages.
-  composer:
-    command: install
-    # @todo Figure out how to make this a relative path.
-    working_dir: /Users/travis.carden/Projects/drush
+  shell: >
+    /usr/local/bin/composer install
+    chdir=~/Projects/drush
+    creates=~/Projects/drush/vendor/autoload.php
 
 - name: Symlink executable.
   file:
