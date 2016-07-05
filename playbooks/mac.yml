@@ -3,12 +3,10 @@
 - hosts: localhost
   connection: local
   tasks:
-
-  - name: homebrew
-    include: tasks/homebrew.yml
-
-  - name: gems
-    include: tasks/gems.yml
-
-  - name: drush
-    include: tasks/drush.yml
+  - include: tasks/{{ file }}.yml
+    with_items:
+    - homebrew
+    - gems
+    - drush
+    loop_control:
+      loop_var: file
