@@ -8,5 +8,6 @@
     - homebrew
     - gems
     - drush
+    - mac-app-store
     loop_control:
       loop_var: file
